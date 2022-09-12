@@ -48,13 +48,14 @@ def study():
     df_score = None
     for video in video_list:
         cmd = "\"C:\\Program Files\\DAUM\\PotPlayer\\PotPlayerMini64.exe\"  {}".format(join(video_dir,video))
+        # time this command to catch cheaters who close the video player
         os.system(cmd)
         win = visual.Window(size=SCREEN_SIZE, fullscr=True)  
         win.mouseVisible = True
         rating = visual.RatingScale(win=win, name='rating', precision = '100', marker='triangle', 
 textColor = 'black',textSize = 0.8,markerColor='DarkRed', showValue = False,mouseOnly= True, 
 tickHeight = 0, size=1.0, pos=[0, 0], low=1, high=100, labels=[u'Bad',u' Excellent'], 
-scale=u'Please provide a video quality score.')
+scale=u'Please provide a video quality score.') # add progress bar here
         text_1 = visual.TextStim(win, text = u'Poor           Fair           Good',
                              pos=(-0.003, -0.07), height=0.05, wrapWidth=1.5, ori=0,
                              color=u'black', colorSpace='rgb', opacity=1,
@@ -217,12 +218,6 @@ if session == '2':
     k_10 = event.waitKeys(keyList = ['return'])
     win.close()
     pass
-
-
-
-
-
-
 
 
 win.close()
