@@ -10,9 +10,8 @@ import time
 #define some global variables
 score_dir = './score/'
 video_dir = 'C:\\Humanstudy\\videos\\all_vid\\'
-video_list_dir = './list/'
-
-
+video_list_dir = 'C:\\ASLStudy\\list'
+# csv for each particant, different csv , name of the video 
 
 
 def train():
@@ -203,8 +202,6 @@ if session == '1':
 
 if session == '2':
 
-
-
     study()
     win = visual.Window(size=SCREEN_SIZE, fullscr=True)  
     text_study = visual.TextStim(win, text = u'Study ends!\n Thanks very much for your participation!',
@@ -219,6 +216,21 @@ if session == '2':
     win.close()
     pass
 
+if session == '3':
+
+    study()
+    win = visual.Window(size=SCREEN_SIZE, fullscr=True)  
+    text_study = visual.TextStim(win, text = u'Study ends!\n Thanks very much for your participation!',
+                             font=u'Arial',
+                             pos=(0, 0), height=0.15, wrapWidth=1.5, ori=0,
+                             color=u'black', colorSpace='rgb', opacity=1,
+                             depth=0.0);
+    text_study.draw()
+    win.flip()
+    core.wait(0)
+    k_10 = event.waitKeys(keyList = ['return'])
+    win.close()
+    pass
 
 win.close()
 core.quit()
